@@ -242,7 +242,7 @@
       var btn = document.getElementById('submit-btn');
       var statusEl = document.getElementById('status');
       // FormSubmit: emails vitreo@ ; first live submit triggers activation email there.
-      var ENDPOINT = 'https://formsubmit.co/ajax/vitreo@agentmail.to';
+      var ENDPOINT = 'https://formsubmit.co/ajax/6aba91a0c703c1deea68286607ed6a72';
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -273,6 +273,7 @@
           note: document.getElementById('note').value.trim() || '(aucune)',
           consent: 'oui',
           source: 'apercu-form',
+          _url: 'https://wigibox.github.io/vitreo-apercu/',
           submitted_at: new Date().toISOString()
         };
 
