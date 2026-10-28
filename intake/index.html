@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Commande page d'accueil Vitréo - formulaire d'intake (5 champs).">
+  <title>Commande - Vitréo</title>
+  <style>
+    :root {
+      --navy: #0B1220;
+      --panel: #121A2B;
+      --gold: #F2C14E;
+      --text: #E6E9F0;
+      --muted: #9AA3B5;
+      --line: #2A3348;
+      --err: #F07178;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #1a2540 0%, var(--navy) 55%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      border: 1px solid #1c2538;
+    }
+    .accent { height: 3px; background: var(--gold); }
+    .inner { padding: 24px 24px 28px; }
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--gold);
+      letter-spacing: 0.8px;
+    }
+    .tag {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 18px 0 8px;
+      line-height: 1.35;
+      color: #fff;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+    .offer {
+      background: var(--navy);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #C8CEDA;
+      margin: 0 0 20px;
+    }
+    .offer strong { color: var(--gold); }
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+    .req { color: var(--gold); }
+    .field { margin: 0 0 14px; }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 15px;
+      padding: 11px 12px;
+      outline: none;
+      font-family: inherit;
+    }
+    input:focus { border-color: var(--gold); }
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 4px 0 18px;
+    }
+    .consent input { margin-top: 2px; flex-shrink: 0; }
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background: var(--gold);
+      color: #0B1220;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 16px;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.05); }
+    button:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+    .status {
+      display: none;
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+    .status.err {
+      display: block;
+      background: rgba(240,113,120,.12);
+      color: #ffb4b8;
+      border: 1px solid rgba(240,113,120,.35);
+    }
+    .foot {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .foot a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="accent"></div>
+      <div class="inner">
+        <div class="brand">Vitréo</div>
+        <div class="tag">Page d'accueil pour indépendants</div>
+        <h1>Démarrer votre page</h1>
+        <p class="lead">
+          Cinq infos suffisent. Ensuite : acompte 50&nbsp;% (349,50&nbsp;€), puis on construit.
+          Réponse de Lucas · Vitréo.
+        </p>
+        <div class="offer">
+          <strong>Offre</strong><br>
+          One-pager fixe <strong>699&nbsp;€</strong>
+          (hébergement + domaine standard 12&nbsp;mois inclus).<br>
+          Acompte 50&nbsp;% = <strong>349,50&nbsp;€</strong> avant démarrage · solde à la livraison.<br>
+          Prix HT sur demande.
+        </div>
+
+        <form id="intake-form" novalidate>
+          <div class="field">
+            <label for="commerce">Nom du commerce <span class="req">*</span></label>
+            <input id="commerce" name="commerce" type="text" required maxlength="120"
+              placeholder="ex. Salon Marie Coiffure">
+          </div>
+
+          <div class="field">
+            <label for="votre_nom">Votre nom <span class="req">*</span></label>
+            <input id="votre_nom" name="votre_nom" type="text" autocomplete="name" required maxlength="120"
+              placeholder="Prénom Nom">
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="120">
+          </div>
+
+          <div class="field">
+            <label for="telephone">Téléphone <span class="req">*</span></label>
+            <input id="telephone" name="telephone" type="tel" autocomplete="tel" required maxlength="40"
+              placeholder="06…">
+          </div>
+
+          <div class="field">
+            <label for="lien">Lien Google / Instagram / site actuel <span class="req">*</span></label>
+            <input id="lien" name="lien" type="text" required maxlength="300"
+              placeholder="URL ou « aucun »">
+          </div>
+
+          <label class="consent">
+            <input id="consent" name="consent" type="checkbox" value="oui" required>
+            <span>J'accepte d'être recontacté(e) par Vitréo pour cette commande. Pas de newsletter automatique. <span class="req">*</span></span>
+          </label>
+
+          <button type="submit" id="submit-btn">Envoyer et passer à l'acompte</button>
+          <div id="status" class="status" role="alert"></div>
+        </form>
+
+        <div class="foot">
+          Lucas · Vitréo ·
+          <a href="mailto:vitreo@agentmail.to">vitreo@agentmail.to</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('intake-form');
+      var btn = document.getElementById('submit-btn');
+      var statusEl = document.getElementById('status');
+      var ENDPOINT = 'https://formsubmit.co/ajax/6aba91a0c703c1deea68286607ed6a72';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        statusEl.className = 'status';
+        statusEl.textContent = '';
+
+        if (!form.reportValidity()) return;
+        if (!document.getElementById('consent').checked) {
+          statusEl.className = 'status err';
+          statusEl.textContent = 'Merci de cocher la case de consentement.';
+          return;
+        }
+
+        var commerce = document.getElementById('commerce').value.trim();
+        var payload = {
+          _subject: 'Vitréo commande - ' + commerce,
+          _template: 'table',
+          _captcha: 'false',
+          name: document.getElementById('votre_nom').value.trim(),
+          votre_nom: document.getElementById('votre_nom').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          _replyto: document.getElementById('email').value.trim(),
+          commerce: commerce,
+          telephone: document.getElementById('telephone').value.trim(),
+          lien: document.getElementById('lien').value.trim(),
+          consent: 'oui',
+          source: 'intake-form',
+          offer: '699 EUR',
+          deposit: '349.50 EUR',
+          _url: 'https://wigibox.github.io/vitreo-apercu/intake/',
+          submitted_at: new Date().toISOString()
+        };
+
+        btn.disabled = true;
+        btn.textContent = 'Envoi…';
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            return res.json().then(function (data) {
+              return { ok: res.ok, data: data };
+            }).catch(function () {
+              return { ok: res.ok, data: {} };
+            });
+          })
+          .then(function (result) {
+            if (result.ok || (result.data && (result.data.success === 'true' || result.data.success === true))) {
+              window.location.href = 'merci.html';
+              return;
+            }
+            throw new Error((result.data && result.data.message) || 'Envoi impossible');
+          })
+          .catch(function () {
+            statusEl.className = 'status err';
+            statusEl.textContent = 'Envoi impossible pour le moment. Réessayez, ou écrivez à vitreo@agentmail.to.';
+            btn.disabled = false;
+            btn.textContent = "Envoyer et passer à l'acompte";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

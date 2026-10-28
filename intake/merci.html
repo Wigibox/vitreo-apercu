@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acompte - Vitréo</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #1a2540 0%, #0B1220 55%);
+      color: #E6E9F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .card {
+      max-width: 480px;
+      width: 100%;
+      background: #121A2B;
+      border-radius: 12px;
+      border: 1px solid #1c2538;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      text-align: center;
+    }
+    .accent { height: 3px; background: #F2C14E; }
+    .inner { padding: 32px 24px 28px; }
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: #F2C14E;
+      letter-spacing: 0.8px;
+    }
+    h1 {
+      font-size: 1.25rem;
+      margin: 18px 0 10px;
+      color: #fff;
+    }
+    p {
+      margin: 0 0 12px;
+      color: #9AA3B5;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .cta {
+      display: inline-block;
+      margin: 14px 0 8px;
+      padding: 13px 22px;
+      background: #F2C14E;
+      color: #0B1220;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .cta:hover { filter: brightness(1.05); }
+    a { color: #F2C14E; text-decoration: none; }
+    .note {
+      font-size: 12px;
+      color: #7A8499;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="accent"></div>
+    <div class="inner">
+      <div class="brand">Vitréo</div>
+      <h1>Merci, c'est bien reçu</h1>
+      <p>
+        Pour démarrer, réglez l'acompte de <strong style="color:#E6E9F0;">349,50&nbsp;€</strong>
+        (50&nbsp;% de 699&nbsp;€). Le solde est dû à la livraison.
+      </p>
+      <a class="cta" href="https://buy.stripe.com/dRm7sM1pm5Ds8A3dY228800" target="_blank" rel="noopener">Payer l'acompte 349,50&nbsp;€</a>
+      <p class="note">
+        Paiement sécurisé Stripe. Après paiement,
+        <strong style="color:#E6E9F0;">Lucas · Vitréo</strong> démarre sans autre validation.
+      </p>
+      <p style="font-size:12px;margin-top:18px;">
+        <a href="index.html">Retour au formulaire</a>
+        ·
+        <a href="mailto:vitreo@agentmail.to">vitreo@agentmail.to</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
